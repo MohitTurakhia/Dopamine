@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import com.dopamine.BuildConfig;
 import com.dopamine.R;
 
+// react-native-sound
+import com.zmxv.RNSound.RNSoundPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -48,6 +50,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
+      new RNSoundPackage(),
       new VectorIconsPackage()
     ));
   }

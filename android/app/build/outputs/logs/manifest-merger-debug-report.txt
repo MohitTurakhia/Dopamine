@@ -5,6 +5,7 @@ INJECTED from C:\Users\mohitayush\Dopamine\android\app\src\main\AndroidManifest.
 INJECTED from C:\Users\mohitayush\Dopamine\android\app\src\main\AndroidManifest.xml:1:1-26:12
 INJECTED from C:\Users\mohitayush\Dopamine\android\app\src\main\AndroidManifest.xml:1:1-26:12
 MERGED from C:\Users\mohitayush\Dopamine\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-sound] C:\Users\mohitayush\Dopamine\node_modules\react-native-sound\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
 MERGED from [:react-native-vector-icons] C:\Users\mohitayush\Dopamine\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.60.5] C:\Users\mohitayush\.gradle\caches\transforms-2\files-2.1\4007c3cd1f05955970b8830f92633d59\AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\mohitayush\.gradle\caches\transforms-2\files-2.1\60e7066184ba5ec72481fbc90ac1b2b4\AndroidManifest.xml:2:1-11:12
@@ -133,6 +134,8 @@ uses-sdk
 INJECTED from C:\Users\mohitayush\Dopamine\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\mohitayush\Dopamine\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\mohitayush\Dopamine\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-sound] C:\Users\mohitayush\Dopamine\node_modules\react-native-sound\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:react-native-sound] C:\Users\mohitayush\Dopamine\node_modules\react-native-sound\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
 MERGED from [:react-native-vector-icons] C:\Users\mohitayush\Dopamine\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] C:\Users\mohitayush\Dopamine\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.60.5] C:\Users\mohitayush\.gradle\caches\transforms-2\files-2.1\4007c3cd1f05955970b8830f92633d59\AndroidManifest.xml:7:5-9:41

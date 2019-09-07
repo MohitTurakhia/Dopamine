@@ -29,6 +29,8 @@ target 'Dopamine' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
   target 'DopamineTests' do
     inherit! :search_paths
     # Pods for testing
