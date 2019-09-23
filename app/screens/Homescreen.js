@@ -6,10 +6,10 @@ import {
   View,
   Dimensions,
   Slider,
+  TouchableOpacity,
 } from 'react-native';
 import { Header, Left, Title, Body, Right, Button, Container, Icon} from 'native-base';
-import {Sound} from 'react-native-sound';
-
+import Sound from 'react-native-sound';
 
 export default class Homescreen extends React.Component {
   render() {
@@ -38,6 +38,28 @@ class CustomSlider extends React.Component{
     slideValue: 0,
   }
 
+  playbeat = () =>{
+    var whoosh = new Sound('demobeat.mp3', Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+      // loaded successfully
+      console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
+     
+      // Play the sound with an onEnd callback
+      whoosh.play((success) => {
+        if (success) {
+          console.log('successfully finished playing');
+        } else {
+          console.log('playback failed due to audio decoding errors');
+        }
+      });
+    });
+    console.log("Hello Mohit");
+
+  }
+  
   render(){
     return(
       <View>       
@@ -51,7 +73,9 @@ class CustomSlider extends React.Component{
           minimumTrackTintColor='#fff'
           />  
         <Text style={{color:"#fff", fontSize:50}}>{this.state.slideValue}</Text>
-
+        <TouchableOpacity onPress={this.playbeat}>
+        <Text style={{color:"#fff"}}>PlayBeat</Text>
+        </TouchableOpacity>
       </View>
     );
   }
