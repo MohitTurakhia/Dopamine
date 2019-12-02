@@ -13,6 +13,16 @@ import java.util.ArrayList;
 import com.dopamine.BuildConfig;
 import com.dopamine.R;
 
+// react-native-audio
+import com.rnim.rn.audio.ReactNativeAudioPackage;
+// react-native-audio-record
+import com.goodatlas.audiorecord.RNAudioRecordPackage;
+// react-native-audio-recorder-player
+import com.dooboolab.RNAudioRecorderPlayerPackage;
+// react-native-audiowaveform
+import com.otomogroove.OGReactNativeWaveform.OGWavePackage;
+// react-native-permissions
+import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
 // react-native-sound
 import com.zmxv.RNSound.RNSoundPackage;
 // react-native-vector-icons
@@ -50,6 +60,11 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
+      new ReactNativeAudioPackage(),
+      new RNAudioRecordPackage(),
+      new RNAudioRecorderPlayerPackage(),
+      new OGWavePackage(),
+      new RNPermissionsPackage(),
       new RNSoundPackage(),
       new VectorIconsPackage()
     ));

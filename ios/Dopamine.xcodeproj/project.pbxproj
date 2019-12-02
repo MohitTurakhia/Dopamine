@@ -31,6 +31,9 @@
 		778FD2328B5240C5A71CE62A /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B4735CC49D44D2ABA0E7027 /* Octicons.ttf */; };
 		7C85D2BF01C64E3E926AF3D6 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9122C126551C422D8D4E8042 /* SimpleLineIcons.ttf */; };
 		966E927AC624401199D4D6D1 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BA175003ED842589378EAF9 /* Zocial.ttf */; };
+		4364C0E0ADBD45819CB735B0 /* libOGReactNativeWaveform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD5780468954B199E658CAA /* libOGReactNativeWaveform.a */; };
+		950BC60F1BC6417CBAB5BA64 /* libRNAudioManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9EF1D9A9144C4892D068E7 /* libRNAudioManager.a */; };
+		17A008F82794470D9D8059AC /* libRNAudioRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0356C8710C684B0D8FBDF388 /* libRNAudioRecord.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,12 @@
 		5B4735CC49D44D2ABA0E7027 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		9122C126551C422D8D4E8042 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5BA175003ED842589378EAF9 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B65DED57134D4E6A973206B3 /* OGReactNativeWaveform.xcodeproj */ = {isa = PBXFileReference; name = "OGReactNativeWaveform.xcodeproj"; path = "../node_modules/react-native-audiowaveform/ios/OGReactNativeWaveform.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		8DD5780468954B199E658CAA /* libOGReactNativeWaveform.a */ = {isa = PBXFileReference; name = "libOGReactNativeWaveform.a"; path = "libOGReactNativeWaveform.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		08FB25AA6D154064A6981D92 /* RNAudioManager.xcodeproj */ = {isa = PBXFileReference; name = "RNAudioManager.xcodeproj"; path = "../node_modules/react-native-audio-recorder/ios/RNAudioManager/RNAudioManager.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2F9EF1D9A9144C4892D068E7 /* libRNAudioManager.a */ = {isa = PBXFileReference; name = "libRNAudioManager.a"; path = "libRNAudioManager.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		E909D66D112C4D8C8FDD1AAA /* RNAudioRecord.xcodeproj */ = {isa = PBXFileReference; name = "RNAudioRecord.xcodeproj"; path = "../node_modules/react-native-audio-record/ios/RNAudioRecord.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		0356C8710C684B0D8FBDF388 /* libRNAudioRecord.a */ = {isa = PBXFileReference; name = "libRNAudioRecord.a"; path = "libRNAudioRecord.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4364C0E0ADBD45819CB735B0 /* libOGReactNativeWaveform.a in Frameworks */,
+				950BC60F1BC6417CBAB5BA64 /* libRNAudioManager.a in Frameworks */,
+				17A008F82794470D9D8059AC /* libRNAudioRecord.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +171,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B65DED57134D4E6A973206B3 /* OGReactNativeWaveform.xcodeproj */,
+				08FB25AA6D154064A6981D92 /* RNAudioManager.xcodeproj */,
+				E909D66D112C4D8C8FDD1AAA /* RNAudioRecord.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -536,6 +551,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dopamine.app/Dopamine";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../**",
+					"$(SRCROOT)/..\node_modules\react-native-audio-recorder\ios\RNAudioManager",
+					"$(SRCROOT)/..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -555,6 +582,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dopamine.app/Dopamine";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../**",
+					"$(SRCROOT)/..\node_modules\react-native-audio-recorder\ios\RNAudioManager",
+					"$(SRCROOT)/..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Release;
 		};
@@ -574,6 +613,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Dopamine;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../**",
+					"$(SRCROOT)/..\node_modules\react-native-audio-recorder\ios\RNAudioManager",
+					"$(SRCROOT)/..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -592,6 +637,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Dopamine;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../**",
+					"$(SRCROOT)/..\node_modules\react-native-audio-recorder\ios\RNAudioManager",
+					"$(SRCROOT)/..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Release;
 		};
@@ -619,6 +670,18 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../**",
+					"$(SRCROOT)/..\node_modules\react-native-audio-recorder\ios\RNAudioManager",
+					"$(SRCROOT)/..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -646,6 +709,18 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../**",
+					"$(SRCROOT)/..\node_modules\react-native-audio-recorder\ios\RNAudioManager",
+					"$(SRCROOT)/..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Release;
 		};
@@ -672,6 +747,18 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dopamine-tvOS.app/Dopamine-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../**",
+					"$(SRCROOT)/..\node_modules\react-native-audio-recorder\ios\RNAudioManager",
+					"$(SRCROOT)/..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -698,6 +785,18 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dopamine-tvOS.app/Dopamine-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../**",
+					"$(SRCROOT)/..\node_modules\react-native-audio-recorder\ios\RNAudioManager",
+					"$(SRCROOT)/..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Release;
 		};

@@ -8,9 +8,19 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "buffer": "^5.4.3",
     "native-base": "^2.13.7",
     "react": "16.8.6",
+    "react-audio-spectrum": "^0.1.0",
     "react-native": "0.60.5",
+    "react-native-audio": "^4.3.0",
+    "react-native-audio-record": "^0.2.1",
+    "react-native-audio-recorder": "0.0.8",
+    "react-native-audio-recorder-player": "^2.3.0",
+    "react-native-audiowaveform": "^2.0.3",
+    "react-native-marquee": "^0.3.2",
+    "react-native-permissions": "^2.0.0",
+    "react-native-router-flux": "^4.0.6",
     "react-native-sound": "^0.11.0",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^2.6.2"
