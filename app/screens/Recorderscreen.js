@@ -130,16 +130,17 @@ export default class Recorderscreen extends Component {
     if (!this.state.recording) return;
     console.log('stop record');
     let audioFile = await AudioRecord.stop();
+    //AudioRecord.saveAsWav();
     console.log('audioFile', audioFile);
     this.setState({ audioFile });
   };
-
+ 
   load = () => {
     return new Promise((resolve, reject) => {
       if (!this.state.audioFile) {
         return reject('file path is empty');
       }
-
+      console.log('Varun',audioFile);
       this.sound = new Sound(this.state.audioFile, '', error => {
         if (error) {
           console.log('failed to load the file', error);
@@ -182,7 +183,7 @@ export default class Recorderscreen extends Component {
   render() {
     const { paused, audioFile } = this.state;
     return (
-      <View>
+      <View style={{backgroundColor:'#1b1c1b'}}>
         <Header style={{backgroundColor:"#1b1c1b"}}>
           <StatusBar backgroundColor="#1b1c1b" barStyle="light-content" />
             <Left> 
@@ -194,7 +195,16 @@ export default class Recorderscreen extends Component {
                 <Title>DopaMINE</Title>
             </Body>
           </Header>
+          <View style={{backgroundColor: '#1b1c1b',alignItems: 'flex-start', marginTop:50}}>
+          <TouchableOpacity onPress={Actions.homepage} style={{marginLeft: 60,
+          marginBottom:50,
+    borderRadius: 30,
+    padding:10,
+    paddingHorizontal: 10,
+    backgroundColor:'#fff',}}><Text style={styles.buttontext}>Back</Text></TouchableOpacity>
+          </View>        
         <View style={styles.container}>
+        
             <TouchableOpacity onPress={this._onPress}>
                     {this._micButton()}
             </TouchableOpacity>
@@ -205,7 +215,7 @@ export default class Recorderscreen extends Component {
             <TouchableOpacity onPress={this.pause} disabled={!audioFile} style={styles.button}><Text style={styles.buttontext}>Pause</Text></TouchableOpacity>
           )}
 
-          <TouchableOpacity onPress={Actions.homepage} style={styles.button}><Text style={styles.buttontext}>Back</Text></TouchableOpacity>
+          <TouchableOpacity onPress={Actions.exportsong} style={styles.button}><Text style={styles.buttontext}>Next</Text></TouchableOpacity>
           </View>
         </View>
       </View>
@@ -215,7 +225,7 @@ export default class Recorderscreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 60,
+    paddingTop: 10,
     flexGrow: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',

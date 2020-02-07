@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Image,
   ToastAndroid,
+  Animated
 } from 'react-native';
 import { Header, Left, Title, Body, Right, Button, Container, Icon} from 'native-base';
 import Sound from 'react-native-sound';
@@ -50,6 +51,9 @@ class CustomSlider extends React.Component{
       slideValue: 1,
       pause: false,
 
+      isPressed:false,
+      animated: new Animated.Value(0),
+      opacityA: new Animated.Value(1)
     };
   }
 
@@ -61,7 +65,7 @@ class CustomSlider extends React.Component{
     });
   }
 
-  onPressButtonPlay() {
+  onPressButtonPlay = () => {
     // song = new Sound('demobeat.mp3', Sound.MAIN_BUNDLE, (error) => {
     //   if(error)
     //     ToastAndroid.show('Error when init Sound ',ToastAndroid.SHORT);
@@ -94,6 +98,80 @@ class CustomSlider extends React.Component{
       this.setState({pause: !this.state.pause});      
     }
   }
+
+  _runAnimation() {
+    const { animated, opacityA } = this.state;
+    Animated.loop(
+        Animated.parallel([
+            Animated.timing(animated, {
+                toValue: 1,
+                duration: 1000/this.state.slideValue,
+            }),
+            Animated.timing(opacityA, {
+                toValue: 0,
+                duration: 1000/this.state.slideValue,
+            })
+        ])
+    ).start();
+}
+  
+  _stopAnimation() {
+    Animated.loop(
+        Animated.parallel([
+            Animated.timing(animated),
+            Animated.timing(opacityA)
+        ])
+    ).stop();
+  }
+
+  _onPress = () => {
+    if(!this.state.isPressed){
+      this.setState({ isPressed: !this.state.isPressed });
+    }else{
+      this.setState(
+          state => ({ isPressed: !state.isPressed })
+      )
+    }
+  }
+
+  
+
+  _micButton() {
+    const { isPressed,animated,opacityA} = this.state;
+    if (isPressed) {
+        //some function
+        this._runAnimation();
+        return (
+            <Animated.View style={{
+                width: 250,
+                height: 250,
+                borderRadius: 125,
+                backgroundColor: 'rgba(255, 34, 17,0.4)',
+                opacity: opacityA,
+                transform: [
+                    {
+                        scale: animated
+                    }
+                ]
+            }}>
+                {/* icon or image */}
+            </Animated.View>
+        );
+    } else {
+        return (
+            <View style={{
+                width: 250,
+                height: 250,
+                borderRadius: 125,
+                backgroundColor: 'rgba(153,0,0,0.4)',
+            }}>
+                {/* icon or image */}
+            </View>
+        );
+    }
+}
+
+  
 
   // onPressButtonPlay = () =>{
   //   var whoosh = new Sound('demobeat.mp3', Sound.MAIN_BUNDLE, (error) => {
@@ -136,15 +214,15 @@ class CustomSlider extends React.Component{
 
         <Text style={styles.text}>Selected Beat Speed: {this.state.slideValue}</Text>
         <View style={{flexDirection: 'row', marginTop:10}}>
-        <TouchableOpacity onPress={this.onPressButtonPlay.bind(this)} style={styles.button}>
+        <TouchableOpacity onPress={() => {this.onPressButtonPlay(); this._onPress();}} style={styles.button}>
         <Text style={styles.buttontext}>Play Beat</Text>
         </TouchableOpacity>
  
-        <TouchableOpacity onPress={this.onPressButtonPause.bind(this)} style={styles.button}>
+        <TouchableOpacity onPress={() => {this.onPressButtonPause(); this._onPress();} } style={styles.button}>
           <Text style={styles.buttontext}>{this.state.pause ? 'Resume Beat' : 'Pause Beat'}</Text>
         </TouchableOpacity>
         </View>
-        <MarqueeText
+        {/* <MarqueeText
           // style={{ fontSize: 24 }}
           duration={150/this.state.slideValue}
           marqueeOnStart={this.state.pause}
@@ -155,7 +233,11 @@ class CustomSlider extends React.Component{
         <Image 
          source={require("./wave.png")}
         />
-        </MarqueeText>
+        </MarqueeText> */}
+
+        
+        {this._micButton()}
+      
 
          
         {/* <WaveForm

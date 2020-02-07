@@ -4,6 +4,8 @@ import Homepage from './Homepage';
 import Record from './Record';
 import Settingscreen from './Settingscreen';
 import Recorderscreen from './Recorderscreen';
+import Export from './Export';
+import Import from './Import';
 
 export default class Routes extends Component<{}> {
     render() {
@@ -14,6 +16,8 @@ export default class Routes extends Component<{}> {
                     <Scene key="record" component={Record} title="Record" />
                     <Scene key="setting" component={Settingscreen} title="Settingscreen" />
                     <Scene key='recordscreen' component={Recorderscreen} title="Recorderscreen" />
+                    <Scene key='exportsong' component={Export} title="Export" />
+                    <Scene key='importsong' component={Import} title="Import" />
                 </Stack>
             </Router>            
         );
