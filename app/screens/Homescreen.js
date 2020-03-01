@@ -4,19 +4,18 @@ import {
   Text,
   StatusBar,
   View,
-  Dimensions,
   Slider,
   TouchableOpacity,
-  Image,
   ToastAndroid,
   Animated
 } from 'react-native';
 import { Header, Left, Title, Body, Right, Button, Container, Icon} from 'native-base';
 import Sound from 'react-native-sound';
-import WaveForm from 'react-native-audiowaveform';
-import Audio from 'react-native-audio';
+//import WaveForm from 'react-native-audiowaveform';
+//import Audio from 'react-native-audio';
 import {Actions} from 'react-native-router-flux';
-import MarqueeText from 'react-native-marquee';
+//import MarqueeText from 'react-native-marquee';
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 
 export default class Homescreen extends React.Component {
@@ -50,15 +49,14 @@ class CustomSlider extends React.Component{
     this.state = {
       slideValue: 1,
       pause: false,
-
+      radiovalue: 0,
       isPressed:false,
       animated: new Animated.Value(0),
       opacityA: new Animated.Value(1)
     };
   }
 
-  componentWillMount() {
-  // audioEle = new Audio('./audio/demobeat.mp3')
+  componentDidMount() {
   song = new Sound('demobeat.mp3', Sound.MAIN_BUNDLE, (error) => {
       if(error)
         ToastAndroid.show('Error when init Sound ',ToastAndroid.SHORT);
@@ -88,11 +86,15 @@ class CustomSlider extends React.Component{
 
   onPressButtonPause = () =>{
     if(song != null) {
-      if(this.state.pause) //play resume
+      song.setSpeed(this.state.slideValue)
+      if(!this.state.pause){ //play resume
+        
         song.play((success) => {
+          song.setSpeed(this.state.slideValue)
           if(!success)
             ToastAndroid.show('Error when play Sound ',ToastAndroid.SHORT);
         })
+      }
       else song.pause();
        
       this.setState({pause: !this.state.pause});      
@@ -143,6 +145,7 @@ class CustomSlider extends React.Component{
         this._runAnimation();
         return (
             <Animated.View style={{
+                marginVertical:15,
                 width: 250,
                 height: 250,
                 borderRadius: 125,
@@ -160,6 +163,7 @@ class CustomSlider extends React.Component{
     } else {
         return (
             <View style={{
+                marginVertical: 15,
                 width: 250,
                 height: 250,
                 borderRadius: 125,
@@ -196,58 +200,55 @@ class CustomSlider extends React.Component{
   // }
 
   
+
+
   render(){
-    
+    const gotopage = () => Actions.recorderscreen1({beat: this.state.slideValue})
+    var radio_props = [
+      {label: 'Piano', value: 0},
+      {label: 'Guitar', value: 1}
+    ];
+
     return(
       <View style={styles.container}>  
         <Text style={styles.text}>Beat Speed Selector: </Text>     
         <Slider style={styles.slider} 
           
-          minimumValue={1}
-          maximumValue={6}
+          minimumValue={0}
+          maximumValue={2}
           value={this.state.slideValue}
           onValueChange={(value)=> this.setState({ slideValue: value}) }
           maximumTrackTintColor='#fff'  
           minimumTrackTintColor='#fff'
-          step={1}
+          step={0.25}
           />
 
         <Text style={styles.text}>Selected Beat Speed: {this.state.slideValue}</Text>
-        <View style={{flexDirection: 'row', marginTop:10}}>
-        <TouchableOpacity onPress={() => {this.onPressButtonPlay(); this._onPress();}} style={styles.button}>
-        <Text style={styles.buttontext}>Play Beat</Text>
-        </TouchableOpacity>
- 
+        <View style={{marginTop:20}}>
+        {/* <TouchableOpacity onPress={() => {this.onPressButtonPlay(); this._onPress();}} style={styles.button}>
+    <Text style={styles.buttontext}>{this.state.pause ? 'Play Beat' : 'Pause Beat'}</Text>
+        </TouchableOpacity> */}
+        
+        <RadioForm
+          radio_props={radio_props}
+          initial={0}
+          onPress={(value) => {this.setState({ radiovalue: value})}}
+          formHorizontal={true}
+          labelHorizontal={true}
+          buttonColor={'#fff'}
+          selectedButtonColor={'#fff'}
+          animation={true}
+          labelStyle={{color: '#fff', fontSize: 20, paddingRight: 20}}
+        />
+        
         <TouchableOpacity onPress={() => {this.onPressButtonPause(); this._onPress();} } style={styles.button}>
-          <Text style={styles.buttontext}>{this.state.pause ? 'Resume Beat' : 'Pause Beat'}</Text>
+          <Text style={styles.buttontext}>{this.state.pause ? 'Pause Beat' : 'Play Beat'}</Text>
         </TouchableOpacity>
         </View>
-        {/* <MarqueeText
-          // style={{ fontSize: 24 }}
-          duration={150/this.state.slideValue}
-          marqueeOnStart={this.state.pause}
-          loop
-          marqueeDelay={0}
-          marqueeResetDelay={0}
-        >
-        <Image 
-         source={require("./wave.png")}
-        />
-        </MarqueeText> */}
 
-        
         {this._micButton()}
-      
 
-         
-        {/* <WaveForm
-          source={{uri:'./audio/demobeat.mp3'}}
-          waveFormStyle={{waveColor:'red', scrubColor:'white'}}
-        ></WaveForm>  */}
-
-        
-
-        <TouchableOpacity style={styles.button} onPress={Actions.recordscreen}>
+        <TouchableOpacity style={styles.button} onPress={gotopage}>
         <Text style={styles.buttontext}>Record Your Song</Text>
         </TouchableOpacity>
       </View>
@@ -269,6 +270,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 300,
     padding:20,
+    alignItems: 'center',
     backgroundColor:'#fff',
   },
   buttontext: {

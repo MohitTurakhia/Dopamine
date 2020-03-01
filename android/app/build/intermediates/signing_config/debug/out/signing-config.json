@@ -1,1 +1,1 @@
-{"mName":"debug","mStoreFile":"C:\\Users\\mohitayush\\Dopamine\\android\\app\\debug.keystore","mStorePassword":"android","mKeyAlias":"androiddebugkey","mKeyPassword":"android","mStoreType":"jks","mV1SigningEnabled":true,"mV2SigningEnabled":true}
+{"mName":"externalOverride","mStoreFile":"C:\\Users\\mohitayush\\Dopamine\\mykeystore.keystore","mStorePassword":"pass@123","mKeyAlias":"mykeyalias","mKeyPassword":"pass@123","mStoreType":"jks","mV1SigningEnabled":false,"mV2SigningEnabled":true}

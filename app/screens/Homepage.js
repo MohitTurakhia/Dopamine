@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {createDrawerNavigator, DrawerItems} from 'react-navigation';
 import Homescreen from './Homescreen';
-import Settingscreen from './Settingscreen';
+import About from './About';
 
 
 
@@ -38,7 +38,7 @@ export default class Homepage extends React.Component {
 const AppDrawerNavigator = createDrawerNavigator(
   {
     Home: Homescreen,
-    Settings: Settingscreen
+    About: About
   },
   {
 //   contentComponent: CustomDrawerComponent
