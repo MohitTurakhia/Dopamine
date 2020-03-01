@@ -63,18 +63,7 @@ class CustomSlider extends React.Component{
     });
   }
 
-  onPressButtonPlay = () => {
-    // song = new Sound('demobeat.mp3', Sound.MAIN_BUNDLE, (error) => {
-    //   if(error)
-    //     ToastAndroid.show('Error when init Sound ',ToastAndroid.SHORT);
-    //   else {
-    //     song.play((success) => {
-    //       if(!success)
-    //         ToastAndroid.show('Error when play Sound ',ToastAndroid.SHORT);
-    //     });
-    //   }
-    // });
-    
+  onPressButtonPlay = () => {   
     if(song != null) {
       song.setSpeed(this.state.slideValue)
       song.play((success) => {
@@ -95,7 +84,7 @@ class CustomSlider extends React.Component{
             ToastAndroid.show('Error when play Sound ',ToastAndroid.SHORT);
         })
       }
-      else song.pause();
+      else song.stop();
        
       this.setState({pause: !this.state.pause});      
     }
@@ -174,36 +163,16 @@ class CustomSlider extends React.Component{
         );
     }
 }
-
   
-
-  // onPressButtonPlay = () =>{
-  //   var whoosh = new Sound('demobeat.mp3', Sound.MAIN_BUNDLE, (error) => {
-  //     if (error) {
-  //       console.log('failed to load the sound', error);
-  //       return;
-  //     }
-  //     // loaded successfully
-  //     console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
-     
-  //     // Play the sound with an onEnd callback
-  //     whoosh.play((success) => {
-  //       if (success) {
-  //         console.log('successfully finished playing');
-  //       } else {
-  //         console.log('playback failed due to audio decoding errors');
-  //       }
-  //     });
-  //   });
-  //   console.log("Hello Mohit");
-
-  // }
-
-  
-
+  chk_song_play() {
+        if(this.state.pause && this.state.isPressed){
+          this.onPressButtonPause();
+        this._onPress();
+      }
+  }
 
   render(){
-    const gotopage = () => Actions.recorderscreen1({beat: this.state.slideValue})
+    const gotopage = () => {Actions.recorderscreen1({beat: this.state.slideValue})}
     var radio_props = [
       {label: 'Piano', value: 0},
       {label: 'Guitar', value: 1}
@@ -248,7 +217,7 @@ class CustomSlider extends React.Component{
 
         {this._micButton()}
 
-        <TouchableOpacity style={styles.button} onPress={gotopage}>
+        <TouchableOpacity style={styles.button} onPress={()=>{this.chk_song_play(); gotopage();}}>
         <Text style={styles.buttontext}>Record Your Song</Text>
         </TouchableOpacity>
       </View>
